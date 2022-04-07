@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>reg</title>
+	<link rel="stylesheet" href="{% static 'reg.css' %}">
+</head>
+<body>
+	<form id="reg">
+		<h1>Регистрация</h1>
+		<fieldset id="inputs">
+			<input id="username" type="text" placeholder="Логин" autofocus required>
+			<input id="email" type="text" placeholder="Электорнная почта" required>    
+			<input id="password" type="password" placeholder="Пароль" required>
+			<input id="rep_pass" type="password" placeholder="Повторите пароль" required>
+		</fieldset>
+		<fieldset id="actions">
+			<input type="submit" id="submit" value="Зарегистрироваться">
+		</fieldset>
+	</form>
+</body>
+</html>

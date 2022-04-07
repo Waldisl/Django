@@ -10,3 +10,6 @@ def index(request):
 
 def first(request):
     return render(request, 'first.html')
+
+def registr(request):
+    return render(request, 'registr.html')
