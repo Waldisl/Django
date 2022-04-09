@@ -137,6 +137,8 @@ fieldset
 #actions
 {
     margin: 25px 0 0 0;
+	display: flex;
+	justify-content: center;
 }
 
 #submit
@@ -163,7 +165,6 @@ fieldset
     border-style: solid;
     border-color: #d69e31 #e3a037 #d5982d #e3a037;
 
-    float: right;
     height: 50px;
     padding: 0;
     width: 200px;
@@ -195,14 +196,6 @@ fieldset
 #submit::-moz-focus-inner
 {
   border: none;
-}
-
-#actions a
-{
-    color: #3151A2;    
-    float: right;
-    line-height: 35px;
-    margin-left: 10px;
 }
 
 /*--------------------*/

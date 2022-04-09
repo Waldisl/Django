@@ -163,7 +163,6 @@ fieldset
     border-style: solid;
     border-color: #d69e31 #e3a037 #d5982d #e3a037;
 
-    float: left;
     height: 35px;
     padding: 0;
     width: 120px;
@@ -201,6 +200,7 @@ fieldset
 {
     color: #3151A2;    
     float: right;
+	font-size: 15px;  
     line-height: 35px;
     margin-left: 10px;
 }
@@ -215,6 +215,3 @@ fieldset
     top: 60px;
     color: #999;
 }
-
-
-

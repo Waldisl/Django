@@ -10,10 +10,14 @@
 	<form id="reg">
 		<h1>Регистрация</h1>
 		<fieldset id="inputs">
-			<input id="username" type="text" placeholder="Логин" autofocus required>
-			<input id="email" type="text" placeholder="Электорнная почта" required>    
-			<input id="password" type="password" placeholder="Пароль" required>
-			<input id="rep_pass" type="password" placeholder="Повторите пароль" required>
+			<!-- <input id="username" type="text" placeholder="Логин" autofocus required> -->
+			{{ user_form.username }}
+			<!-- <input id="email" type="text" placeholder="Электорнная почта" required>     -->
+			{{ user_form.email }}
+			<!-- <input id="password" type="password" placeholder="Пароль" required> -->
+			{{ user_form.password }}
+			<!-- <input id="rep_pass" type="password" placeholder="Повторите пароль" required> -->
+			{{ user_form.password2 }}
 		</fieldset>
 		<fieldset id="actions">
 			<input type="submit" id="submit" value="Зарегистрироваться">
