@@ -13,7 +13,9 @@
 			{{ user_form.username }}
 			{{ user_form.email }}
 			{{ user_form.password }}
+			{% csrf_token %}
 			{{ user_form.password2 }}
+			{% csrf_token %}
 		</fieldset>
 		<fieldset id="actions">
 			<input type="submit" id="submit" value="Зарегистрироваться">

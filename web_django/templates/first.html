@@ -11,11 +11,12 @@
 
 <body>
 
-	<form id="login">
+	<form id="login" method="POST" action="/">
 		<h1>Форма входа</h1>
 		<fieldset id="inputs">
 			{{ form.username }}
 			{{ form.password }}
+			{% csrf_token %}
 		</fieldset>
 		<fieldset id="actions">
 			<input type="submit" id="submit" value="ВОЙТИ">
