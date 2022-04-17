@@ -25,9 +25,6 @@ class UserRegistrationForm(forms.ModelForm):
 			return False
 		return True
 
-
-
-
 	class Meta:
 		model = User
 		fields = ('username', 'email')
