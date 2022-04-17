@@ -6,6 +6,10 @@ from .forms import LoginForm, UserRegistrationForm
 # from django.core.mail import send_mail
 # import random
 
+from django.conf				import settings
+from django.shortcuts			import redirect
+
+
 
 def index(request):
 	return render(request, "index.html")
@@ -28,9 +32,10 @@ def user_login(request):
 			if user is not None:
 				if user.is_active:
 					login(request, user)
+					print(user.is_authenticated)
 					return index(request)
 				else:
-					return HttpResponse("Disabled account")
+					return HttpResponse("Подтвердите аакаунт")
 			else:
 				return HttpResponse("Неверный логин или пароль")
 	else:
@@ -44,9 +49,13 @@ def user_login(request):
 def register(request):
 	if request.method == "POST":
 		user_form = UserRegistrationForm(request.POST)
+		user_form.is_valid()
+		user_form.compare_password2()
+		
 		if user_form.is_valid():
 			# Create a new user object but avoid saving it yet
 			new_user = user_form.save(commit=False)
+			
 			# Set the chosen password
 			new_user.set_password(user_form.cleaned_data["password"])
 			# new_user.is_active = False
@@ -62,7 +71,14 @@ def register(request):
 			# 		return render(request, 'registration/register.html', {'form': form})
 			# new_user.objects.create(username = user_form.username, email = user_form.email, password = user_form.cleaned_data["password"])
 			return render(request, "register_done.html", {"new_user": new_user})
+		else:
+			print(user_form.errors.as_text)
+			return render(request, "registr.html", {"error": user_form.errors, "user_form": user_form})
 	else:
 		user_form = UserRegistrationForm()
 	return render(request, "registr.html", {"user_form": user_form})
 
+
+def my_view(request):
+	if not request.user.is_authenticated:
+		return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
